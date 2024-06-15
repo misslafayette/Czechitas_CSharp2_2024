@@ -33,18 +33,27 @@ with one hand and glancing at it. His face went from red to green faster
 than a set of traffic lights. And it didn't stop there. Within seconds
 it was the grayish white of old porridge.";
 
-            // Nez zacnes volat nejake stringove funkce na nejake stringove premenne, nezapomen overit, ze obsahuje smysluplnou hodnotu. Vysledek uloz do promenne 'textMaSmysl'.
+            // Nez zacnes volat nejake stringove funkce na nejake stringove premenne, nezapomen overit, ze obsahuje smysluplnou hodnotu.
+            // Vysledek uloz do promenne 'textMaSmysl'.
+
             bool textMaSmysl = false;
+            if (string.IsNullOrWhiteSpace(text));
+            {
+                textMaSmysl = true;
+            }
             Console.WriteLine("Text dava smysl - ".PadRight(padding) + (textMaSmysl == true));
 
             // Do promenne 'delkaTextu' uloz celkovou delku uryvku z knizky.
 
             int delkaTextu = 0;
-            Console.WriteLine("Delka text je spravna - ".PadRight(padding) + (delkaTextu = 1001));
+            delkaTextu = text.Length;
+            Console.WriteLine(delkaTextu);
+            Console.WriteLine("Delka text je spravna - ".PadRight(padding) + (delkaTextu == 1001));
 
-            // Do promenne 'oddelovac' vloz tect, ktery se sklada pouze z pomlcek a jeho delka je presne 20. Pouzij k tomu konstruktor typu string.
+            // Do promenne 'oddelovac' vloz text, ktery se sklada pouze z pomlcek a jeho delka je presne 20. Pouzij k tomu konstruktor typu string.
 
             string oddelovac = null;
+            oddelovac = new string('-', 20);
             Console.WriteLine("Oddelovac ma 20 pomlcek - ".PadRight(padding) + (oddelovac == "--------------------"));
 
             // Pozmen nasledujici porovnani textu tak, aby se do konzole vypisovalo True, aniz bys menila hodnoty promennych
@@ -52,16 +61,25 @@ it was the grayish white of old porridge.";
             string jmeno1 = "Katka";
             string jmeno2 = "katka";
             bool jeStejne = false;
+            jeStejne = string.Equals(jmeno1, jmeno2, StringComparison.OrdinalIgnoreCase);
             Console.WriteLine("Obe promenne obsahuji stejne jmeno - ".PadRight(padding) + jeStejne);
 
             // Zjisti, jestli je v textu zmínka o obtloustle "tete" Harryho. Jmenuje se Marge. Vysledek uloz do promenne 'piseSeOMarge';
 
             bool piseSeOMarge = false;
+            if (text.Contains("Marge"))
+            {
+                piseSeOMarge = true;
+            }
             Console.WriteLine("V textu se zminuje Harry 'teticka' - ".PadRight(padding) + (piseSeOMarge == true));
 
             // Zjisti jestli je text spravne ukonceny interpunkci. Vysledek uloz do promenne 'jeSpravneUkoncen'.
 
             bool jeSpravneUkoncen = false;
+            if (text.EndsWith('.'))
+            {
+                jeSpravneUkoncen = true;
+            }
             Console.WriteLine("Text je spravne ukoncen interpunkci - ".PadRight(padding) + (jeSpravneUkoncen == true));
 
             // Pomoci abecedniho provonani zjisti, kterzy z nasledujicich textu je podle abecedy prvni a jeho hodnotu prirad do promenne 'prvni'.
